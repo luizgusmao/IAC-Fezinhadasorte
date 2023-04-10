@@ -1,4 +1,13 @@
+params:
+  server.insecure: false
+  server.basehref: /argocd
+  server.rootpath: '/argocd'
 server:
+  replicas: 3
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
   ingress:
     enabled: true
     ingressClassName: "kong"
@@ -6,14 +15,4 @@ server:
       - fezinhadasorte.com
     paths:
       - /argocd
-    # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
-    # -- Additional ingress paths
-    extraPaths: []
-      # - path: /*
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: ssl-redirect
-      #       port:
-      #         name: use-annotation
