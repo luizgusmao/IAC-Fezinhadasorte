@@ -17,7 +17,7 @@ spec:
       values: |
         replicas: 3
         autoscaling:
-          enabled: false
+          enabled: true
           minReplicas: 1
           maxReplicas: 5
         persistence:
