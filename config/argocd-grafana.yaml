@@ -15,6 +15,11 @@ spec:
         value: "kong"
         forceString: true # ensures that value is treated as a string
       values: |
+        replicas: 3
+        autoscaling:
+          enabled: false
+          minReplicas: 1
+          maxReplicas: 5
         persistence:
           enabled: true  # enable persistence using Persistent Volumes
         datasources:
@@ -48,10 +53,14 @@ spec:
           enabled: true
           ingressClassName: kong
           hosts:
-            - "grafana.local"
+          - fezinhadasorte.com
+            paths:
+              - /argocd
+            pathType: Prefix
         grafana.ini:
           server:
-            domain: grafana.local
+            domain: fezinhadasorte.com
+            root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
