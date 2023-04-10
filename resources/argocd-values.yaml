@@ -3,6 +3,8 @@ params:
   server.basehref: /argocd
   server.rootpath: '/argocd'
 server:
+  extraArgs:
+   - --insecure
   replicas: 3
   autoscaling:
     enabled: true
