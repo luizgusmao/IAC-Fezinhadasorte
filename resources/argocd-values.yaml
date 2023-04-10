@@ -3,6 +3,9 @@ params:
   server.basehref: /argocd
   server.rootpath: '/argocd'
 server:
+  route:
+    enabled: true
+    termination_type: passthrough
   replicas: 3
   autoscaling:
     enabled: true
