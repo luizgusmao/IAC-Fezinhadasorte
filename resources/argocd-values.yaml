@@ -1,15 +1,13 @@
-params:
-  server.insecure: true
-  server.basehref: /argocd
-  server.rootpath: '/argocd'
-server:
-  extraArgs:
-   - --insecure
-  replicas: 3
+argo-cd:
+  replicaCount: 3
   autoscaling:
     enabled: true
-    minReplicas: 1
-    maxReplicas: 5
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 80
+  config:
+    server:
+      basehref: /argocd/
   ingress:
     enabled: true
     ingressClassName: "kong"
