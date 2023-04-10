@@ -53,14 +53,10 @@ spec:
           enabled: true
           ingressClassName: kong
           hosts:
-          - fezinhadasorte.com
-            paths:
-              - /argocd
-            pathType: Prefix
+          - "fezinhadasorte.com"
         grafana.ini:
           server:
             domain: fezinhadasorte.com
-            root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana/
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
