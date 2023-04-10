@@ -14,6 +14,8 @@ spec:
       - name: "ingressController.installCRDs"
         value: "false"
         forceString: true # ensures that value is treated as a string
+      - name: "proxy.loadBalancerIP"
+        value: "35.237.165.35"
       values: |
         podAnnotations:
           prometheus.io/scrape: "true" # Ask Prometheus to scrape the
