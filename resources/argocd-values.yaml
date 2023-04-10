@@ -7,8 +7,14 @@ argo-cd:
     targetCPUUtilizationPercentage: 80
   config:
     server:
-      basehref: /argocd/
+      baseHref: /argocd/
       rootPath: /argocd/
+      staticAssets:
+        enabled: true
+        path: /shared/app
+    insecure: true
+    logFormat: text
+    logLevel: info
   ingress:
     enabled: true
     ingressClassName: "kong"
