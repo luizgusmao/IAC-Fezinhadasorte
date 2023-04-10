@@ -8,6 +8,7 @@ argo-cd:
   config:
     server:
       basehref: /argocd/
+      rootPath: /argocd/
   ingress:
     enabled: true
     ingressClassName: "kong"
