@@ -27,7 +27,7 @@ controller:
 server:
   autoscaling:
     enabled: true
-    minReplicas: 1
+    minReplicas: 2
   ingress:
     enabled: true
     ingressClassName: "kong"
@@ -39,8 +39,8 @@ server:
 repoServer:
   autoscaling:
     enabled: true
-    minReplicas: 1
+    minReplicas: 2
   containerPorts:
     server: 8081
 applicationSet:
-  replicaCount: 1
+  replicaCount: 2
