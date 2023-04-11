@@ -21,7 +21,7 @@ spec:
           minReplicas: 1
           maxReplicas: 5
         persistence:
-          enabled: true  # enable persistence using Persistent Volumes
+          enabled: true  # enable persistence using Persistent Volumes 
         datasources:
           datasources.yaml:
             apiVersion: 1
