@@ -1,7 +1,8 @@
 crds:
   install: false
 global:
-  securityContext: 
+  securityContext:
+    runAsUser: 999
     fsGroup: 999
   logging:
     format: text
