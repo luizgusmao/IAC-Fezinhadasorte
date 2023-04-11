@@ -53,7 +53,8 @@ spec:
           enabled: true
           ingressClassName: kong
           rules:
-          - http:
+          - host: fezinhadasorte.com
+            http:
               paths:
               - backend:
                   service:
