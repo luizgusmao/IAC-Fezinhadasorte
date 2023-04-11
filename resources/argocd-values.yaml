@@ -31,8 +31,6 @@ server:
   ingress:
     enabled: true
     ingressClassName: "kong"
-    hosts:
-      - fezinhadasorte.com
     paths:
       - /argocd
     pathType: Prefix
