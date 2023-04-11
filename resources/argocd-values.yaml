@@ -20,7 +20,7 @@ dex:
   containerPorts:
     http: 5556
 redis-ha:
-  enabled: true
+  enabled: false
 controller:
   replicas: 1
 server:
