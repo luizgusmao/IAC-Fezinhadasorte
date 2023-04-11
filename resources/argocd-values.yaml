@@ -1,3 +1,6 @@
+crds:
+# -- Install and upgrade CRDs
+install: false
 global:
   logging:
     format: text
