@@ -58,9 +58,8 @@ spec:
           pathType: Prefix
         grafana.ini:
           server:
-            domain = "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
-            root_url = https://fezinhadasorte.com/grafana/
-            serve_from_sub_path = false
+            root_url = https://fezinhadasorte.com:443/grafana/
+            serve_from_sub_path = true
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
