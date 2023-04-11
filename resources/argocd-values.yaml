@@ -1,20 +1,27 @@
-argo-cd:
-  replicaCount: 3
+global:
+  logging:
+    format: text
+    level: info
+configs:
+  params:
+    server.insecure: true
+    server.basehref: /argocd/
+    server.rootpath: '/argocd/'
+    server.staticassets: /shared/app
+redis:
+  containerPorts:
+    redis: 6379
+dex:
+  containerPorts:
+    http: 5556
+redis-ha:
+  enabled: true
+controller:
+  replicas: 1
+server:
   autoscaling:
     enabled: true
     minReplicas: 2
-    maxReplicas: 10
-    targetCPUUtilizationPercentage: 80
-  config:
-    server:
-      baseHref: /argocd/
-      rootPath: /argocd/
-      staticAssets:
-        enabled: true
-        path: /shared/app
-    insecure: true
-    logFormat: text
-    logLevel: info
   ingress:
     enabled: true
     ingressClassName: "kong"
@@ -23,3 +30,11 @@ argo-cd:
     paths:
       - /argocd
     pathType: Prefix
+repoServer:
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+  containerPorts:
+    server: 8081
+applicationSet:
+  replicaCount: 2
