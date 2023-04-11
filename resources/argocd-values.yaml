@@ -14,6 +14,8 @@ configs:
     "server.basehref": /argocd/
     "server.rootpath": '/argocd/'
     "server.staticassets": /shared/app
+  cm:
+    timeout.reconciliation: 30s
 redis:
   containerPorts:
     redis: 6379
