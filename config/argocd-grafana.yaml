@@ -58,7 +58,7 @@ spec:
           pathType: Prefix
         grafana.ini:
           server:
-            root_url: fezinhadasorte.com/grafana/
+            root_url: /grafana/
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
