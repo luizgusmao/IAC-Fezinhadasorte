@@ -54,8 +54,7 @@ spec:
           ingressClassName: kong
           hosts:
           - "fezinhadasorte.com"
-          paths:
-          - /grafana
+          path: /grafana
           pathType: Prefix
         grafana.ini:
           server:
