@@ -58,7 +58,7 @@ spec:
           pathType: Prefix
         grafana.ini:
           server:
-            domain = fezinhadasorte.com
+            domain = fezinhadasorte.com/grafana
             root_url = %(protocol)s://%(domain)s:%(http_port)s/grafana
             serve_from_sub_path = true
   destination:
