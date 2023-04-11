@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: "15.8.5"
+    targetRevision: "20.2.0"
     chart: prometheus
     helm:
       values: |
@@ -18,7 +18,9 @@ spec:
             enabled: true
             ingressClassName: kong
             hosts:
-            - prometheus.local
+            - fezinhadasorte.com/prometheus
+            path: /prometheus
+            pathType: Prefix
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
