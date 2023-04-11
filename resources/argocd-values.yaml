@@ -4,11 +4,10 @@ global:
     level: info
 configs:
   params:
-    server:
-      insecure: true
-      basehref: /argocd/
-      rootpath: '/argocd/'
-      staticassets: /shared/app
+    "server.insecure": true
+    "server.basehref": /argocd/
+    "server.rootpath": '/argocd/'
+    "server.staticassets": /shared/app
 redis:
   containerPorts:
     redis: 6379
