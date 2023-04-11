@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/codecentric/helm-charts
-    targetRevision: "18.4.1"
+    targetRevision: "18.4.0"
     chart: keycloak
     helm:
       values: |
