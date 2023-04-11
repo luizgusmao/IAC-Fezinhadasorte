@@ -11,12 +11,6 @@ spec:
     chart: keycloak
     helm:
       values: |
-        #args:
-        #  - -Dkeycloak.profile.feature.docker=enabled
-        #  tls:
-        #  - hosts:
-        #    - sso.ssotest.staging.talkingquickly.co.uk
-        #    secretName: keycloak-tld-secret
         ingress:
           enabled: true
           ingressClassName: kong
