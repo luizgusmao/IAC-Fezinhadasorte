@@ -2,12 +2,6 @@ global:
   logging:
     format: text
     level: info
-configs:
-  params:
-    server.insecure: true
-    server.basehref: /argocd/
-    server.rootpath: '/argocd/'
-    server.staticassets: /shared/app
 redis:
   containerPorts:
     redis: 6379
@@ -19,6 +13,8 @@ redis-ha:
 controller:
   replicas: 1
 server:
+  extraArgs:
+    - --insecure
   autoscaling:
     enabled: true
     minReplicas: 2
