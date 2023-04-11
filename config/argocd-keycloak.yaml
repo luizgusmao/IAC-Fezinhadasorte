@@ -20,13 +20,13 @@ spec:
           pathType: Prefix
         extraEnv: |
         - name: KEYCLOAK_LOGLEVEL
-          value: DEBUG
+          value: 'DEBUG'
         - name: KEYCLOAK_USER
-          value: admin
+          value: 'admin'
         - name: KEYCLOAK_PASSWORD
-          value: as897gsdfs766dfsgjhsdf
+          value: 'as897gsdfs766dfsgjhsdf'
         - name: PROXY_ADDRESS_FORWARDING
-          value: "true"
+          value: 'true'
         - name: KEYCLOAK_ADMIN
           value: 'admin'
         - name: KEYCLOAK_ADMIN_PASSWORD
