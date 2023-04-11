@@ -58,7 +58,6 @@ spec:
           pathType: Prefix
         grafana.ini:
           server:
-            domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
             root_url: fezinhadasorte.com/grafana/
   destination:
     server: https://kubernetes.default.svc
