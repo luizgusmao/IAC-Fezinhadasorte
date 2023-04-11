@@ -19,12 +19,10 @@ spec:
         #    secretName: keycloak-tld-secret
         ingress:
           enabled: true
-          annotations:
-            cert-manager.io/cluster-issuer: letsencrypt-production
           ingressClassName: kong
           hosts: 
             - fezinhadasorte.com
-          path: /grafana
+          path: /keycloak
           pathType: Prefix
         extraEnv: |
         - name: KEYCLOAK_LOGLEVEL
