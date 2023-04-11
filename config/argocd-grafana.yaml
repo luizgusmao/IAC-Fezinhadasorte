@@ -54,6 +54,9 @@ spec:
           ingressClassName: kong
           hosts:
           - "fezinhadasorte.com"
+          paths:
+          - /grafana
+            pathType: Prefix
         grafana.ini:
           server:
             domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
