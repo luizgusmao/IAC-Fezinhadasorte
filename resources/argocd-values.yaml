@@ -1,6 +1,7 @@
 crds:
   install: false
 global:
+  securityContext: 999
   logging:
     format: text
     level: info
