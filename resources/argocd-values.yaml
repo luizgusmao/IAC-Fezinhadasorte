@@ -10,6 +10,7 @@ global:
 configs:
   params:
     "server.insecure": true
+    "server.disable.auth": true
     "server.basehref": /argocd/
     "server.rootpath": '/argocd/'
     "server.staticassets": /shared/app
