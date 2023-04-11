@@ -52,17 +52,10 @@ spec:
         ingress:
           enabled: true
           ingressClassName: kong
-          rules:
           hosts: 
-          - fezinhadasorte.com
-          extraPaths:
-            - path: /grafana
-              backend:
-                service:
-                  name: grafana
-                  port:
-                    number: 80
-              pathType: Prefix
+          - fezinhadasorte.com/grafana
+          path: /grafana
+          pathType: Prefix
         grafana.ini:
           server:
             domain = "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
