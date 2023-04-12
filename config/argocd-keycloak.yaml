@@ -10,49 +10,38 @@ spec:
     targetRevision: "18.4.0"
     chart: keycloak
     helm:
-      values: |
+      values:
+        service:
+          type: NodePort
         ingress:
           enabled: true
+          annotations:
+            konghq.com/protocol: https
+            konghq.com/https-redirect-status-code: "301"
           ingressClassName: kong
           hosts: 
             - fezinhadasorte.com
-          path: /keycloak
+          paths:
+            - /auth(/|$)(.*)
           pathType: Prefix
-        extraEnv: |
-        - name: KEYCLOAK_LOGLEVEL
-          value: 'DEBUG'
-        - name: KEYCLOAK_USER
-          value: 'admin'
-        - name: KEYCLOAK_PASSWORD
-          value: 'as897gsdfs766dfsgjhsdf'
-        - name: PROXY_ADDRESS_FORWARDING
-          value: 'true'
-        - name: KEYCLOAK_ADMIN
-          value: 'admin'
-        - name: KEYCLOAK_ADMIN_PASSWORD
-          value: 'as897gsdfs766dfsgjhsdf'
-        - name: KC_PROXY
-          value: 'edge'
-        - name: KC_HOSTNAME
-          value: fezinhadasorte.com
-        - name: KC_HOSTNAME_STRICT_HTTPS
-          value: 'true'
-        - name: KC_LOG_LEVEL
-          value: 'INFO'
-        - name: KC_DB
-          value: 'postgres'
-        - name: KC_DB_URL
-          value: 'jdbc:postgresql://10.15.112.3:5432/keycloak'
-        - name: KC_DB_USERNAME
-          value: 'keycloak'
-        - name: KC_DB_PASSWORD
-          value: 'test123'
-        - name: KC_TRANSACTION_XA_ENABLED
-          value: 'true'
-        - name: KC_HEALTH_ENABLED
-          value: 'true'
-        - name: KC_METRICS_ENABLED
-          value: 'true'
+        env:
+          KEYCLOAK_LOGLEVEL: DEBUG
+          KEYCLOAK_USER: admin
+          KEYCLOAK_PASSWORD: as897gsdfs766dfsgjhsdf
+          PROXY_ADDRESS_FORWARDING: 'true'
+          KEYCLOAK_ADMIN: admin
+          KEYCLOAK_ADMIN_PASSWORD: as897gsdfs766dfsgjhsdf
+          KC_PROXY: edge
+          KC_HOSTNAME: fezinhadasorte.com
+          KC_HOSTNAME_STRICT_HTTPS: 'true'
+          KC_LOG_LEVEL: INFO
+          KC_DB: postgres
+          KC_DB_URL: jdbc:postgresql://10.15.112.3:5432/keycloak
+          KC_DB_USERNAME: keycloak
+          KC_DB_PASSWORD: test123
+          KC_TRANSACTION_XA_ENABLED: 'true'
+          KC_HEALTH_ENABLED: 'true'
+          KC_METRICS_ENABLED: 'true'
   destination:
     server: https://kubernetes.default.svc
     namespace: auth
