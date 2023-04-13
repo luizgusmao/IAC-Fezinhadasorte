@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: front-end-fezinhadasorte-deployment
+  namespace: front-end-fezinhadasorte
+  labels:
+    app: front-end-fezinhadasorte
+spec:
+  selector:
+    matchLabels:
+      app: front-end-fezinhadasorte
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: front-end-fezinhadasorte
+    spec:
+      containers:
+      - name: front-end-fezinhadasorte-container
+        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/front-end-fezinhadasorte:56cfba3 # Image that will be used to containers in the cluster
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080 # The port that the container is running on in the cluster
+            protocol: TCP
+        env:
+          - name: PORT
+            value: "8080"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
