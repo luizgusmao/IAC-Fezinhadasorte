@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: front-end-fezinhadasorte
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/luizgusmao/frontEndFezinhadasorte.git
+    targetRevision: HEAD
+    path: apps/frontEndFezinhadasorte
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: front-end-fezinhadasorte
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
