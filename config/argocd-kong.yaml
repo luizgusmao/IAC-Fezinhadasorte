@@ -19,6 +19,15 @@ spec:
       - name: "proxy.loadBalancerIP"
         value: "35.237.165.35"
       values: |
+        deployment:
+          sidecarContainers:
+            - name: tcpdump
+              securityContext:
+                runAsUser: 0
+              image: corfr/tcpdump
+              command:
+                - /bin/sleep
+                - infinity
         proxy:
           tls: 
             enabled: true
