@@ -16,7 +16,8 @@ spec:
         forceString: true # ensures that value is treated as a string
       values: |
         proxy:
-          enabled: false
+          enabled: true
+          type: ClusterIP
         podAnnotations:
           prometheus.io/scrape: "true" # Ask Prometheus to scrape the
           prometheus.io/port: "8100"   # Kong pods for metrics
