@@ -12,12 +12,11 @@ spec:
     helm:
       parameters:
       - name: "ingressController.installCRDs"
-        value: 'false'
+        value: "false"
         forceString: true # ensures that value is treated as a string
+      - name: "proxy.loadBalancerIP"
+        value: "35.237.165.35"
       values: |
-        proxy:
-          enabled: true
-          type: ClusterIP
         podAnnotations:
           prometheus.io/scrape: "true" # Ask Prometheus to scrape the
           prometheus.io/port: "8100"   # Kong pods for metrics
