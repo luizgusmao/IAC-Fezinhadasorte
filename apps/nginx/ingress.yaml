@@ -28,4 +28,3 @@ spec:
             name: front-end-fezinhadasorte-clusterip-service
             port: 
               number: 443
-  controller: nginx.org/ingress-controller
