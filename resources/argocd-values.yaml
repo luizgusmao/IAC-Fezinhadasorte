@@ -32,7 +32,7 @@ server:
     minReplicas: 2
   ingress:
     enabled: true
-    ingressClassName: "kong"
+    ingressClassName: "nginx"
     paths:
       - /argocd
     pathType: Prefix
