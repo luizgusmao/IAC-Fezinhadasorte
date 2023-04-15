@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd-new
+spec:
+  project: default
+  source:
+    repoURL: https://codecentric.github.io/helm-charts
+    targetRevision: "18.4.0"
+    chart: keycloak
+    helm:
+      values: |
+        service:
+          type: ClusterIP
+        postgresql:
+          enabled: false
+        ingress:
+          enabled: true
+          ingressClassName: kong
+          rules:
+            - host: fezinhadasorte.com
+              paths:
+                - path: /auth
+                  pathType: Prefix
+        extraEnv: |
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: auth
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
