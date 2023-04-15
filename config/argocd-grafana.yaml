@@ -51,7 +51,7 @@ spec:
               datasource: Prometheus
         ingress:
           enabled: true
-          ingressClassName: kong
+          ingressClassName: nginx
           hosts: 
             - fezinhadasorte.com
           path: /grafana
