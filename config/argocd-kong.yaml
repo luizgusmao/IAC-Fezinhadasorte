@@ -48,7 +48,7 @@ spec:
             tls: certificate-fezinhadasorte-locaweb-256g4
             hostname: fezinhadasorte.com/kong-admin
           http:
-            enabled: false
+            enabled: true
             servicePort: 8001
             containerPort: 8001
           tls:
