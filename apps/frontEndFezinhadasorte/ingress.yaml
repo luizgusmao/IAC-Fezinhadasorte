@@ -7,7 +7,12 @@ metadata:
     nginx.ingress.kubernates.io/rewrite-target: /
     kubernetes.io/ingress.global-static-ip-name: fezinhadasorte-ip-external
     acme.cert-manager.io/http01-edit-in-place: "true"
+    certm-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
 spec:
+  tls:
+  - hosts:
+    - "www.fezinhadasorte.com"
+    secretname: fezinhadasorte-letsencrypt-secret
   ingressClassName: nginx
   rules:
   - host: www.fezinhadasorte.com
