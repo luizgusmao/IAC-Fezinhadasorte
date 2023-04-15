@@ -6,19 +6,23 @@ metadata:
   annotations:
     nginx.ingress.kubernates.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: www.fezinhadasorte.com
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: front-end-fezinhadasorte-clusterip-service
-          servicePort: 443
+          service:
+            name: front-end-fezinhadasorte-clusterip-service
+            port: 443
   - host: fezinhadasorte.com
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: front-end-fezinhadasorte-clusterip-service
-          servicePort: 443
+          name: front-end-fezinhadasorte-clusterip-service
+          port: 443
   controller: nginx.org/ingress-controller
