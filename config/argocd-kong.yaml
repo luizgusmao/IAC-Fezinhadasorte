@@ -19,6 +19,16 @@ spec:
       - name: "proxy.loadBalancerIP"
         value: "35.237.165.35"
       values: |
+        ingressController:
+          enabled: true
+          env:
+            kong_admin_tls_skip_verify: false
+          adminApi:
+            tls:
+              client:
+                enabled: true
+                certProvided: true
+                secretName: "certificate-fezinhadasorte-locaweb-256g4"
         deployment:
           sidecarContainers:
             - name: tcpdump
