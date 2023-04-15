@@ -28,6 +28,9 @@ spec:
               command:
                 - /bin/sleep
                 - infinity
+        admin:
+          ingress:
+            tls: certificate-fezinhadasorte-locaweb-256g4
         proxy:
           tls: 
             enabled: true
