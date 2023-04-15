@@ -16,13 +16,16 @@ spec:
         backend:
           service:
             name: front-end-fezinhadasorte-clusterip-service
-            port: 443
+            port: 
+              number: 443
   - host: fezinhadasorte.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
-          name: front-end-fezinhadasorte-clusterip-service
-          port: 443
+          service:
+            name: front-end-fezinhadasorte-clusterip-service
+            port: 
+              number: 443
   controller: nginx.org/ingress-controller
