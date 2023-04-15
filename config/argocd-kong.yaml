@@ -28,6 +28,9 @@ spec:
               command:
                 - /bin/sleep
                 - infinity
+        certificates:
+          enabled: true
+          issuer: "GlobalSign Root CA"
         admin:
           ingress:
             tls: certificate-fezinhadasorte-locaweb-256g4
