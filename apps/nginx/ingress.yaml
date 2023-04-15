@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-ingress-fezinhadasorte
-  namespace: nginx-ingress
+  namespace: front-end-fezinhadasorte
   annotations:
     nginx.ingress.kubernates.io/rewrite-target: /
     kubernetes.io/ingress.global-static-ip-name: fezinhadasorte-ip-external
