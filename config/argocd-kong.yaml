@@ -32,6 +32,7 @@ spec:
           enabled: true
           issuer: "GlobalSign Root CA"
         admin:
+          enabled: true
           ingress:
             tls: certificate-fezinhadasorte-locaweb-256g4
         proxy:
