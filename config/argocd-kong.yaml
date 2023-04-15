@@ -34,12 +34,26 @@ spec:
         admin:
           enabled: true
           ingress:
+            enabled: true
             tls: certificate-fezinhadasorte-locaweb-256g4
+            hostname: kong.lan
+          http:
+            enabled: false
+            servicePort: 8001
+            containerPort: 8001
+          tls:
+            enabled: true
+            servicePort: 8444
+            containerPort: 8444
         proxy:
           tls: 
             enabled: true
             servicePort: 443
             containerPort: 8443
+          commonName: "www.fezinhadasorte.com"
+          dnsNames:
+          - "fezinhadasorte.com"
+          - "www.fezinhadasorte.com"
           http:
             enabled: false
         podAnnotations:
