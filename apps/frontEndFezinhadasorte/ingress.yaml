@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - "www.fezinhadasorte.com"
-    secretname: fezinhadasorte-letsencrypt-secret
+    secretName: fezinhadasorte-letsencrypt-secret
   ingressClassName: nginx
   rules:
   - host: www.fezinhadasorte.com
