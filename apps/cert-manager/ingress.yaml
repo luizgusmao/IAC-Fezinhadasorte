@@ -4,13 +4,15 @@ metadata:
   name: nginx-ingress-fezinhadasorte
   annotations:
     nginx.ingress.kubernates.io/rewrite-target: /
-    kubernetes.io/ingress.global-static-ip-name: fezinhadasorte-ip-external
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    certm-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
+    kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
+    cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
 spec:
   tls:
   - hosts:
     - "www.fezinhadasorte.com"
+    - "fezinhadasorte.com"
     secretName: letsencrypt-fezinhadasorte
   ingressClassName: nginx
   rules:
@@ -23,7 +25,7 @@ spec:
           service:
             name: front-end-fezinhadasorte-clusterip-service
             port: 
-              number: 443
+              name: https
   - host: fezinhadasorte.com
     http:
       paths:
@@ -33,4 +35,4 @@ spec:
           service:
             name: front-end-fezinhadasorte-clusterip-service
             port: 
-              number: 443
+              name: https
