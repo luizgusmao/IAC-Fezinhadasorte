@@ -19,6 +19,7 @@ spec:
           enabled: true
           servicePort: https
           annotations: 
+            nginx.ingress.kubernates.io/rewrite-target: /auth
             kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
             nginx.ingress.kubernetes.io/ssl-redirect: 'true'
             nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
