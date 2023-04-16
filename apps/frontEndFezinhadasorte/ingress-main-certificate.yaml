@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   namespace: front-end-fezinhadasorte
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
 spec:
   ingressClassName: nginx
   tls:
