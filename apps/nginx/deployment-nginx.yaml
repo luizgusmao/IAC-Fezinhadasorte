@@ -6,24 +6,43 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations:
+        prometheus.io/port: "9113"
+        prometheus.io/scheme: http
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
       labels:
-        app: nginx
+        app: nginx-ingress
+        app.kubernetes.io/name: nginx-ingress
     spec:
+      automountServiceAccountToken: true
       containers:
-      - name: nginx
-        image: nginx
+        image: nginx/nginx-ingress:3.1.0
+        imagePullPolicy: IfNotPresent
+        name: nginx-ingress
         ports:
         - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        - containerPort: 8081
+          name: readiness-port
+          protocol: TCP
+        - containerPort: 9113
+          name: prometheus
+          protocol: TCP
         volumeMounts:
-        - mountPath: /etc/nginx # mount nginx-conf volumn to /etc/nginx
+        - mountPath: /etc/nginx # mount nginx-config volumn to /etc/nginx
           readOnly: true
-          name: nginx-conf
+          name: nginx-config
         - mountPath: /var/log/nginx
           name: log
       volumes:
-      - name: nginx-conf
+      - name: nginx-config
         configMap:
-          name: nginx-conf # place ConfigMap `nginx-conf` on /etc/nginx
+          name: nginx-config # place ConfigMap `nginx-conf` on /etc/nginx
           items:
             - key: nginx.conf
               path: nginx.conf
