@@ -17,9 +17,26 @@ spec:
           enabled: false
         ingress:
           enabled: true
+          annotations: 
+            kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
+            nginx.ingress.kubernates.io/rewrite-target: /$1    
+            nginx.ingress.kubernetes.io/ssl-redirect: 'false'
+            nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
+            nginx.ingress.kubernetes.io/enable-cors: "true"
+            nginx.ingress.kubernetes.io/secure-backends: "true"
+            cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
+          tls:
+          - hosts:
+            - "www.fezinhadasorte.com"
+            - "fezinhadasorte.com"
+            secretName: letsencrypt-fezinhadasorte
           ingressClassName: nginx
           rules:
             - host: fezinhadasorte.com
+              paths:
+                - path: /auth
+                  pathType: Prefix
+            - host: www.fezinhadasorte.com
               paths:
                 - path: /auth
                   pathType: Prefix
@@ -68,3 +85,19 @@ spec:
       prune: true
       allowEmpty: true
       selfHeal: true
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-fezinhadasorte-cluster-issuer
+  namespace: auth
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: admin@fezinhadasorte.com
+    privateKeySecretRef:
+      name: letsencrypt-fezinhadasorte
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
