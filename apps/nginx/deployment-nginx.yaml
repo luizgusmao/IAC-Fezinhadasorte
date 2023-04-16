@@ -39,11 +39,11 @@ spec:
           name: prometheus
           protocol: TCP
         volumeMounts:
-        - mountPath: /etc/nginx/nginx.conf # mount nginx-config volumn to /etc/nginx
+        - mountPath: /home/lhbg18/srv/local-etc/nginx/nginx.conf # mount nginx-config volumn to /etc/nginx
           subPath: nginx.conf
           readOnly: true
           name: nginx-config
-        - mountPath: /var/log/nginx
+        - mountPath: /home/lhbg18/srv/local-etc/nginx/log
           name: log
       volumes:
       - name: nginx-config
