@@ -20,6 +20,7 @@ spec:
     spec:
       automountServiceAccountToken: true
       containers:
+      - args:
         image: nginx/nginx-ingress:3.1.0
         imagePullPolicy: IfNotPresent
         name: nginx-ingress
