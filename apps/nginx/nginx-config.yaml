@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: ConfigMap
 metadata:
-  name: nginx-conf
+  name: nginx-config
+  namespace: nginx-ingress
 data:
   nginx.conf: |
     user nginx;
