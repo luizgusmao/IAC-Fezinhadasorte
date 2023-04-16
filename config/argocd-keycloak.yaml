@@ -17,6 +17,7 @@ spec:
           enabled: false
         ingress:
           enabled: true
+          servicePort: https
           annotations: 
             kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
             nginx.ingress.kubernates.io/rewrite-target: /$1    
