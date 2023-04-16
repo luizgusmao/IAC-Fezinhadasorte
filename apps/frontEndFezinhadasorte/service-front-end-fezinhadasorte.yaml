@@ -7,7 +7,7 @@ spec:
   selector:
     app: front-end-fezinhadasorte
   ports:
-    - name: https
+    - name: http
       port: 80
       targetPort: 8080
   type: ClusterIP
