@@ -20,7 +20,6 @@ spec:
           servicePort: https
           annotations: 
             kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
-            nginx.ingress.kubernates.io/rewrite-target: /
             nginx.ingress.kubernetes.io/ssl-redirect: 'true'
             nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
             nginx.ingress.kubernetes.io/enable-cors: "true"
