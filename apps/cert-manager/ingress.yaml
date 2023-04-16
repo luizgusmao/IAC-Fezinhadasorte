@@ -24,8 +24,8 @@ spec:
         backend:
           service:
             name: front-end-fezinhadasorte-clusterip-service
-            port: 
-              name: https
+            port:
+              number: 8080
   - host: fezinhadasorte.com
     http:
       paths:
@@ -34,5 +34,5 @@ spec:
         backend:
           service:
             name: front-end-fezinhadasorte-clusterip-service
-            port: 
-              name: https
+            port:
+              number: 8080
