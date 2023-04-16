@@ -1,7 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: front-end-fezinhadasorte
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
 spec:
