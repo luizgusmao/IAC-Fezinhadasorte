@@ -1,18 +1,19 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: front-end-fezinhadasorte-hpa
+  name: campanha-microservice-hpa
+  namespace: ingress-nginx
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: front-end-fezinhadasorte-deployment
-  minReplicas: 1
-  maxReplicas: 2
+    name: campanha-microservice-deployment
+  minReplicas: 3
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 80
+          averageUtilization: 50

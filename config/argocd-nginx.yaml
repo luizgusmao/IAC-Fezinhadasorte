@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/luizgusmao/kind-kong.git
+    repoURL: https://github.com/luizgusmao/IAC-fezinhadasorte.git
     targetRevision: HEAD
     path: apps/nginx
   destination:

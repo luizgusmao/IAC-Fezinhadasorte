@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: resultado-concurso-microservice-deployment
+spec:
+  selector:
+    matchLabels:
+      app: resultado-concurso-microservice
+  replicas: 3 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: resultado-concurso-microservice
+    spec:
+      serviceAccountName: conta-servico-ksa
+      containers:
+      - name: resultado-concurso-microservice-container
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: username
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: database
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: db_host
+        image: INIT_IMAGE_NAME # Image that will be used to containers in the cluster
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080 # The port that the container is running on in the cluster
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

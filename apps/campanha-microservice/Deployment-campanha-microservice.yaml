@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: campanha-microservice-deployment
+  namespace: ingress-nginx
+  labels:
+    app: campanha-microservice
+spec:
+  selector:
+    matchLabels:
+      app: campanha-microservice
+      tier: web
+  replicas: 3 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: campanha-microservice
+        tier: web
+    spec:
+      containers:
+      - name: campanha-microservice-container
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: username
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: database
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-db
+              key: db_host
+        - name: SECRET_KEYSTORE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-key-store
+              key: secret_keystore_password
+        - name: SECRET_KEY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-key
+              key: secret_key_password
+        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/campanha-microservice:81dc6a1 # Image that will be used to containers in the cluster
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8443 # The port that the container is running on in the cluster
+            protocol: TCP
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
