@@ -70,7 +70,7 @@ spec:
             secretKeyRef:
               name: fezinhadasorte-secret-key
               key: secret_key_password
-        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/campanha-microservice:81dc6a1 # Image that will be used to containers in the cluster
+        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/campanha-microservice:46b8256 # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8443 # The port that the container is running on in the cluster
