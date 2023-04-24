@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: campanha-microservice-deployment
+  name: cliente-microservice-deployment
   namespace: ingress-nginx
   labels:
-    app: campanha-microservice
+    app: cliente-microservice
 spec:
   selector:
     matchLabels:
-      app: campanha-microservice
+      app: cliente-microservice
       tier: web
   replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: campanha-microservice
+        app: cliente-microservice
         tier: web
     spec:
       containers:
-      - name: campanha-microservice-container
+      - name: cliente-microservice-container
         env:
         - name: DB_USER
           valueFrom:
@@ -50,7 +50,7 @@ spec:
             secretKeyRef:
               name: fezinhadasorte-secret-key
               key: secret_key_password
-        image: INIT_IMAGE_NAME # Image that will be used to containers in the cluster
+        image:  INIT_IMAGE_NAME # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080 # The port that the container is running on in the cluster

@@ -1,24 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: campanha-microservice-deployment
-  namespace: ingress-nginx
-  labels:
-    app: campanha-microservice
+  name: resultado-concurso-microservice-deployment
 spec:
   selector:
     matchLabels:
-      app: campanha-microservice
-      tier: web
+      app: resultado-concurso-microservice
   replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: campanha-microservice
-        tier: web
+        app: resultado-concurso-microservice
     spec:
+      serviceAccountName: conta-servico-ksa
       containers:
-      - name: campanha-microservice-container
+      - name: resultado-concurso-microservice-container
         env:
         - name: DB_USER
           valueFrom:
@@ -40,21 +36,10 @@ spec:
             secretKeyRef:
               name: fezinhadasorte-secret-db
               key: db_host
-        - name: SECRET_KEYSTORE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: fezinhadasorte-secret-key-store
-              key: secret_keystore_password
-        - name: SECRET_KEY_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: fezinhadasorte-secret-key
-              key: secret_key_password
         image: INIT_IMAGE_NAME # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080 # The port that the container is running on in the cluster
-            protocol: TCP
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
