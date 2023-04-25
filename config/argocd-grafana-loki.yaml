@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana-loki
-  namespace: producao-loki
+  namespace: producao
 spec:
   project: default
   source:
