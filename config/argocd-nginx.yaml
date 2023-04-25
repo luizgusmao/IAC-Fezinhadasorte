@@ -10,16 +10,22 @@ spec:
     targetRevision: ""
     chart: nginx-ingress
     helm:
-      controller:
-        replicaCount: 2
-        service:
-          loadBalancerIP: "35.237.165.35"
-          ipFamilies: "IPv4"
-          ipFamilyPolicy: "SingleStack"
-        autoscaling:
-          enabled: true
-      prometheus:
-        create: true
+      values: |
+        controller:
+          replicaCount: 2
+          metrics:
+            enabled: true
+          ingressClass: nginx
+          config:
+            use-forwarded-headers: "true"
+          service:
+            loadBalancerIP: "35.237.165.35"
+            ipFamilies: "IPv4"
+            ipFamilyPolicy: "SingleStack"
+          autoscaling:
+            enabled: true
+        prometheus:
+          create: true
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
