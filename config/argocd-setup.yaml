@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-ingress
+  namespace: argocd-new
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/luizgusmao/IAC-fezinhadasorte.git
+    targetRevision: HEAD
+    path: apps/setup
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
