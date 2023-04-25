@@ -26,21 +26,35 @@ spec:
           service:
             name: front-end-fezinhadasorte-clusterip-service
             port:
-              number: 8080
-      - path: /api/campanha
+              number: 80
+      - path: /api
         pathType: Prefix
         backend:
           service:
             name: campanha-microservice-clusterip-service
             port:
-              number: 8080
+              number: 80
       - path: /api/cliente
         pathType: Prefix
         backend:
           service:
             name: cliente-microservice-clusterip-service
             port:
-              number: 8080
+              number: 80
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: keycloak-http
+            port:
+              number: 80
+      - path: /argocd
+        pathType: Prefix
+        backend:
+          service:
+            name: argo-cd-argocd-server
+            port:
+              number: 80
   - host: fezinhadasorte.com
     http:
       paths:
@@ -50,18 +64,32 @@ spec:
           service:
             name: front-end-fezinhadasorte-clusterip-service
             port:
-              number: 8080
-      - path: /api/campanha
+              number: 80
+      - path: /api
         pathType: Prefix
         backend:
           service:
             name: campanha-microservice-clusterip-service
             port:
-              number: 8080
+              number: 80
       - path: /api/cliente
         pathType: Prefix
         backend:
           service:
             name: cliente-microservice-clusterip-service
             port:
-              number: 8080
+              number: 80
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: keycloak-http
+            port:
+              number: 80
+      - path: /argocd
+        pathType: Prefix
+        backend:
+          service:
+            name: argo-cd-argocd-server
+            port:
+              number: 80
