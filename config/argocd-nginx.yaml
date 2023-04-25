@@ -2,16 +2,25 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
-  namespace: argocd-new
+  namespace: ingress-nginx
 spec:
   project: default
   source:
-    repoURL: https://github.com/luizgusmao/IAC-fezinhadasorte.git
-    targetRevision: HEAD
-    path: apps/nginx
+    repoURL: https://helm.nginx.com/stable
+    targetRevision: ""
+    chart: nginx-ingress
+    helm:
+      values: |
+      controller:
+        replicaCount: 2
+        metrics:
+          enabled: true
+        ingressClass: nginx
+        config:
+          use-forwarded-headers: "true"
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
+    namespace: ingress-nginx
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
