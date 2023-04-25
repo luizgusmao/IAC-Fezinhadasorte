@@ -16,10 +16,6 @@ spec:
         forceString: true # ensures that value is treated as a string
       values: |
         replicas: 3
-        autoscaling:
-          enabled: true
-          minReplicas: 1
-          maxReplicas: 5
         persistence:
           enabled: true  # enable persistence using Persistent Volumes 
         datasources:

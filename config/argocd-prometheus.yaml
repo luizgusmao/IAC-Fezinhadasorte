@@ -16,7 +16,7 @@ spec:
             scrape_interval: 10s
           ingress:
             enabled: true
-            ingressClassName: kong
+            ingressClassName: nginx
             hosts:
               - fezinhadasorte.com/prometheus
             path: /prometheus
