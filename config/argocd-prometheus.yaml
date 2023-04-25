@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prometheus
-  namespace: argocd-new
+  namespace: argocd-producao
 spec:
   project: default
   source:
@@ -23,7 +23,7 @@ spec:
             pathType: Prefix
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: producao
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

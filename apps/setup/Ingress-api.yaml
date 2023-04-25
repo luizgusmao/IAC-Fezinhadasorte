@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx-fezinhadasorte-api
-  namespace: ingress-nginx
+  namespace: producao
   annotations:
     kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
     cert-manager.io/cluster-issuer: letsencrypt-fezinhadasorte-cluster-issuer

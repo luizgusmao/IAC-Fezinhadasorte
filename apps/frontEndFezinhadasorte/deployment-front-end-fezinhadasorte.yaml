@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: front-end-fezinhadasorte-deployment
-  namespace: ingress-nginx
+  namespace: producao
   labels:
     app: front-end-fezinhadasorte
 spec:

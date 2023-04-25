@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: front-end-fezinhadasorte
-  namespace: argocd-new
+  namespace: argocd-producao
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: apps/frontEndFezinhadasorte
   destination:
     server: https://kubernetes.default.svc
-    namespace: front-end-fezinhadasorte
+    namespace: producao
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

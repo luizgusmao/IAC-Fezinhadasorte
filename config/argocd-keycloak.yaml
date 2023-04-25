@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keycloak
-  namespace: argocd-new
+  namespace: argocd-producao
 spec:
   project: default
   source:
@@ -15,23 +15,6 @@ spec:
           type: ClusterIP
         postgresql:
           enabled: false
-        ingress:
-          enabled: true
-          servicePort: http
-          annotations: 
-            nginx.ingress.kubernates.io/rewrite-target: /auth
-            kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
-            nginx.ingress.kubernetes.io/ssl-redirect: 'true'
-            nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
-            nginx.ingress.kubernetes.io/enable-cors: "true"
-            nginx.ingress.kubernetes.io/secure-backends: "true"
-            cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
-          tls:
-          - hosts:
-            - "www.fezinhadasorte.com"
-            - "fezinhadasorte.com"
-            secretName: letsencrypt-fezinhadasorte
-          ingressClassName: nginx
           rules:
             - host: fezinhadasorte.com
               paths:
@@ -78,7 +61,7 @@ spec:
             value: 'true'
   destination:
     server: https://kubernetes.default.svc
-    namespace: auth
+    namespace: producao
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

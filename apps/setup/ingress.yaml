@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx-fezinhadasorte
-  namespace: nginx-ingress
+  namespace: producao
   annotations:
     nginx.ingress.kubernates.io/rewrite-target: /
     kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
@@ -27,6 +27,20 @@ spec:
             name: front-end-fezinhadasorte-clusterip-service
             port:
               number: 8080
+      - path: /api/campanha
+        pathType: Prefix
+        backend:
+          service:
+            name: campanha-microservice-clusterip-service
+            port:
+              number: 8080
+      - path: /api/cliente
+        pathType: Prefix
+        backend:
+          service:
+            name: cliente-microservice-clusterip-service
+            port:
+              number: 8080
   - host: fezinhadasorte.com
     http:
       paths:
@@ -35,5 +49,19 @@ spec:
         backend:
           service:
             name: front-end-fezinhadasorte-clusterip-service
+            port:
+              number: 8080
+      - path: /api/campanha
+        pathType: Prefix
+        backend:
+          service:
+            name: campanha-microservice-clusterip-service
+            port:
+              number: 8080
+      - path: /api/cliente
+        pathType: Prefix
+        backend:
+          service:
+            name: cliente-microservice-clusterip-service
             port:
               number: 8080

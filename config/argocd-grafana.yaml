@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
-  namespace: argocd-new
+  namespace: argocd-producao
 spec:
   project: default
   source:
@@ -45,20 +45,13 @@ spec:
               gnetId: 7424  # Install the following Grafana dashboard in the  
               revision: 7   # instance: https://grafana.com/dashboards/7424
               datasource: Prometheus
-        ingress:
-          enabled: true
-          ingressClassName: nginx
-          hosts: 
-            - fezinhadasorte.com
-          path: /grafana
-          pathType: Prefix
         grafana.ini:
           server:
             root_url: https://fezinhadasorte.com:443/grafana/
             serve_from_sub_path: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: producao
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
