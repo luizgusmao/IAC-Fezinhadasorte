@@ -11,14 +11,7 @@ spec:
     chart: nginx-ingress
     helm:
       values: |
-        controller:
-          replicaCount: 2
-          metrics:
-            enabled: true
-          config:
-            use-forwarded-headers: "true"
-          service:
-            loadBalancerIP: "35.237.165.35"
+        
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
