@@ -15,9 +15,10 @@ spec:
           replicaCount: 2
           metrics:
             enabled: true
-          ingressClass: nginx
           config:
             use-forwarded-headers: "true"
+          service:
+            loadBalancerIP: "35.237.165.35"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
