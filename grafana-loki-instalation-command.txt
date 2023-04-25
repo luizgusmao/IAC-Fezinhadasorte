@@ -1,1 +1,6 @@
 helm upgrade --install --namespace producao-loki logging grafana/loki -f values.yml --set loki.auth_enabled=false
+
+--values.yaml
+
+minio:
+  enabled: true
