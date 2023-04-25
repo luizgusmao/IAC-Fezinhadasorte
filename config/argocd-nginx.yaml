@@ -20,8 +20,6 @@ spec:
             use-forwarded-headers: "true"
           service:
             loadBalancerIP: "35.237.165.35"
-          autoscaling:
-            enabled: true
         prometheus:
           create: true
   destination:
