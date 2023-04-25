@@ -17,3 +17,5 @@ spec:
     name: https
   selector:
     app: nginx-ingress
+  externalIPs:
+    - 35.237.165.35
