@@ -15,7 +15,7 @@ spec:
           enabled: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao-loki
+    namespace: producao
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
