@@ -4,43 +4,20 @@ global:
   securityContext:
     runAsUser: 999
     fsGroup: 999
-  logging:
-    format: text
-    level: info
 configs:
   params:
-    "server.insecure": true
-    "server.disable.auth": true
-    "server.basehref": /argocd/
-    "server.rootpath": '/argocd/'
-    "server.staticassets": /shared/app
+    server.insecure: true
+    server.disable.auth: true
+    server.basehref: /argocd/
+    server.rootpath: '/argocd/'
+    server.staticassets: /shared/app
   cm:
-    timeout.reconciliation: 30s
-redis:
-  containerPorts:
-    redis: 6379
-dex:
-  containerPorts:
-    http: 5556
-redis-ha:
-  enabled: false
-controller:
-  replicas: 1
+    timeout.reconciliation: 10s
 server:
   autoscaling:
     enabled: true
     minReplicas: 2
-  ingress:
-    enabled: true
-    ingressClassName: "nginx"
-    paths:
-      - /argocd
-    pathType: Prefix
 repoServer:
   autoscaling:
     enabled: true
     minReplicas: 2
-  containerPorts:
-    server: 8081
-applicationSet:
-  replicaCount: 2
