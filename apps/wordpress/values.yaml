@@ -108,7 +108,7 @@ wordpressPassword: ""
 ## NOTE: Must contain key `wordpress-password`
 ## NOTE: When it's set, the `wordpressPassword` parameter is ignored
 ##
-existingSecret: "wordpress-password"
+existingSecret: wordpress-password
 ## @param wordpressEmail WordPress user email
 ##
 wordpressEmail: luiz.gusmao@fezinhadasorte.com
