@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
-  namespace: producao
+  namespace: producao-argo-cd
 spec:
   project: default
   source:
@@ -51,7 +51,7 @@ spec:
             serve_from_sub_path: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao
+    namespace: producao-grafana
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
