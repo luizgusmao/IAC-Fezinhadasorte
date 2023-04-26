@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-grafana
-  namespace: producao-grafana
+  namespace: producao-loki
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
 spec:
