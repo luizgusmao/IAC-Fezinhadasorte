@@ -11,8 +11,8 @@ spec:
     namespace: producao
   project: default  
   source:
-    repoURL: 'https://github.com/grafana/helm-charts.git'
-    path: charts/loki-stack
+    repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'
+    path: apps/loki-stack
     targetRevision: HEAD
     helm:
       valueFiles:
