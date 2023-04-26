@@ -17,8 +17,9 @@ spec:
     secretName: letsencrypt-fezinhadasorte
   ingressClassName: nginx
   rules:
-  - host: "*fezinhadasorte.com"
+  - host: "*.fezinhadasorte.com"
     http:
+      paths:
       - path: /api
         pathType: Prefix
         backend:
