@@ -3,85 +3,26 @@ kind: Application
 metadata:
   name: keycloak
   namespace: producao-argo-cd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  source:
-    repoURL: https://codecentric.github.io/helm-charts
-    targetRevision: "18.4.0"
-    chart: keycloak
-    helm:
-      values: |
-        service:
-          type: ClusterIP
-        postgresql:
-          enabled: false
-          rules:
-            - host: fezinhadasorte.com
-              paths:
-                - path: /auth
-                  pathType: Prefix
-            - host: www.fezinhadasorte.com
-              paths:
-                - path: /auth
-                  pathType: Prefix
-        extraEnv: |
-          - name: KEYCLOAK_LOGLEVEL
-            value: 'DEBUG'
-          - name: KEYCLOAK_USER
-            value: 'admin'
-          - name: KEYCLOAK_PASSWORD
-            value: 'as897gsdfs766dfsgjhsdf'
-          - name: PROXY_ADDRESS_FORWARDING
-            value: 'true'
-          - name: KEYCLOAK_ADMIN
-            value: 'admin'
-          - name: KEYCLOAK_ADMIN_PASSWORD
-            value: 'as897gsdfs766dfsgjhsdf'
-          - name: KC_PROXY
-            value: 'edge'
-          - name: KC_HOSTNAME
-            value: fezinhadasorte.com
-          - name: KC_HOSTNAME_STRICT_HTTPS
-            value: 'true'
-          - name: KC_LOG_LEVEL
-            value: 'INFO'
-          - name: KC_DB
-            value: 'postgres'
-          - name: KC_DB_URL
-            value: 'jdbc:postgresql://10.15.112.3:5432/keycloak'
-          - name: KC_DB_USERNAME
-            value: 'keycloak'
-          - name: KC_DB_PASSWORD
-            value: 'test123'
-          - name: KC_TRANSACTION_XA_ENABLED
-            value: 'true'
-          - name: KC_HEALTH_ENABLED
-            value: 'true'
-          - name: KC_METRICS_ENABLED
-            value: 'true'
   destination:
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
     namespace: producao-keycloak
+  project: default  
+  source:
+    repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'
+    path: apps/keycloak
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
   syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
-    automated:
-      prune: true
-      allowEmpty: true
-      selfHeal: true
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-fezinhadasorte-cluster-issuer
-  namespace: producao-keycloak
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: admin@fezinhadasorte.com
-    privateKeySecretRef:
-      name: letsencrypt-fezinhadasorte
-    solvers:
-    - http01:
-        ingress:
-          class: nginx
+      - PruneLast=true
+      # - Replace=true 
