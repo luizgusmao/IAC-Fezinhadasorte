@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx-argocd
-  namespace: producao-argocd
+  namespace: producao-argo-cd
   annotations:
     nginx.ingress.kubernates.io/rewrite-target: /
     kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
@@ -17,17 +17,7 @@ spec:
     secretName: letsencrypt-fezinhadasorte
   ingressClassName: nginx
   rules:
-  - host: www.fezinhadasorte.com
-    http:
-      paths:
-      - path: /argocd
-        pathType: Prefix
-        backend:
-          service:
-            name: argo-cd-argocd-server
-            port:
-              number: 80
-  - host: fezinhadasorte.com
+  - host: "*.fezinhadasorte.com"
     http:
       paths:
       - path: /argocd

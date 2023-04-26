@@ -158,7 +158,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: nginx-ingress
-  namespace: producao
+  namespace: producao-nginx-ingress
 roleRef:
   kind: ClusterRole
   name: nginx-ingress

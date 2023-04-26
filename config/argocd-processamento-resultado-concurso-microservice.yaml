@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: processamento-resultado-concurso-microservice
-  namespace: producao-argocd
+  namespace: producao-argo-cd
 spec:
   project: default
   source:

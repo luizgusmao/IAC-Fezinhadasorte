@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: producao
+  name: producao-nginx-ingress
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: nginx-ingress
-  namespace: producao
+  namespace: producao-nginx-ingress
 #automountServiceAccountToken: false
