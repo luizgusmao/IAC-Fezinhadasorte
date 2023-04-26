@@ -13,7 +13,6 @@ spec:
       labels:
         app: processamento-resultado-concurso-microservice
     spec:
-      serviceAccountName: conta-servico-ksa
       containers:
       - name: processamento-resultado-concurso-microservice-container
         env:
