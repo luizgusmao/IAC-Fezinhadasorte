@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: resultado-concurso-microservice
-  namespace: producao
+  namespace: producao-argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: apps/resultado-concurso-microservice
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao
+    namespace: producao-api-resultado-concurso
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: campanha-microservice
-  namespace: producao
+  namespace: producao-argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: apps/campanha-microservice
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao
+    namespace: producao-microservices
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: resultado-concurso-microservice-deployment
-  namespace: producao
+  namespace: producao-api-resultado-concurso
 spec:
   selector:
     matchLabels:

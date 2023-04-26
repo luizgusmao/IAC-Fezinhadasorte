@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: resultado-concurso-microservice-deployment
-  namespace: producao
+  name: processamento-resultado-concurso-microservice-deployment
+  namespace: producao-api-proc-resultado-concurso
 spec:
   selector:
     matchLabels:
-      app: resultado-concurso-microservice
+      app: processamento-resultado-concurso-microservice
   replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: resultado-concurso-microservice
+        app: processamento-resultado-concurso-microservice
     spec:
       serviceAccountName: conta-servico-ksa
       containers:
-      - name: resultado-concurso-microservice-container
+      - name: processamento-resultado-concurso-microservice-container
         env:
         - name: DB_USER
           valueFrom:

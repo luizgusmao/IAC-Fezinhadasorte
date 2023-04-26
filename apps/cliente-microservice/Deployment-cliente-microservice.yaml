@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: cliente-microservice-deployment
-  namespace: producao
+  namespace: producao-api-cliente
   labels:
     app: cliente-microservice
 spec:

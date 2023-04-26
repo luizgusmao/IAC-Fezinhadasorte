@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: campanha-microservice-hpa
-  namespace: producao
+  namespace: producao-api-campanha
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
