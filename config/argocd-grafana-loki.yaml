@@ -1,25 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana-loki
+  name: loki
   namespace: producao
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  source:
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: "5.2.0"
-    chart: loki
-    helm:
-      values: |
-        minio:
-          enabled: true
   destination:
-    server: https://kubernetes.default.svc
-    namespace: producao
+    server: 'https://kubernetes.default.svc'
+    namespace: loki
+  project: default  
+  source:
+    repoURL: 'https://github.com/grafana/helm-charts.git'
+    path: charts/loki-stack
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
   syncPolicy:
+    automated: 
+      prune: true
+      selfHeal: true
+      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
-    automated:
-      prune: true
-      allowEmpty: true
-      selfHeal: true
+      - PruneLast=true
+      #- Replace=true
