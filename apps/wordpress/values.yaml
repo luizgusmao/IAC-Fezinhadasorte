@@ -99,7 +99,7 @@ image:
 
 ## @param wordpressUsername WordPress username
 ##
-wordpressUsername: user
+wordpressUsername: admin
 ## @param wordpressPassword WordPress user password
 ## Defaults to a random 10-character alphanumeric string if not set
 ##
@@ -108,16 +108,16 @@ wordpressPassword: ""
 ## NOTE: Must contain key `wordpress-password`
 ## NOTE: When it's set, the `wordpressPassword` parameter is ignored
 ##
-existingSecret: ""
+existingSecret: "wordpress-password"
 ## @param wordpressEmail WordPress user email
 ##
-wordpressEmail: user@example.com
+wordpressEmail: luiz.gusmao@fezinhadasorte.com
 ## @param wordpressFirstName WordPress user first name
 ##
-wordpressFirstName: FirstName
+wordpressFirstName: Luiz
 ## @param wordpressLastName WordPress user last name
 ##
-wordpressLastName: LastName
+wordpressLastName: Gusmao
 ## @param wordpressBlogName Blog name
 ##
 wordpressBlogName: User's Blog!
@@ -531,7 +531,7 @@ lifecycleHooks: {}
 service:
   ## @param service.type WordPress service type
   ##
-  type: LoadBalancer
+  type: ClusterIP
   ## @param service.ports.http WordPress service HTTP port
   ## @param service.ports.https WordPress service HTTPS port
   ##
