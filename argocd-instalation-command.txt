@@ -1,5 +1,5 @@
 --Instalação
-helm install argo-cd argo/argo-cd --create-namespace --namespace producao --version 5.29.1 --values resources/argocd-values.yaml
+helm install argo-cd argo/argo-cd --create-namespace --namespace producao-argocd --version 5.29.1 --values resources/argocd-values.yaml
 
 --Pegar a senha
 kubectl -n producao get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
