@@ -9,7 +9,6 @@ spec:
     repoURL: https://github.com/bitnami/charts.git
     path: bitnami/wordpress
     targetRevision: HEAD
-    chart: wordpress
   destination:
     server: https://kubernetes.default.svc
     namespace: producao-wordpress
