@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: campanha-microservice
-  namespace: producao-argo-cd
+  namespace: producao-argo-cd-new
 spec:
   project: default
   source:

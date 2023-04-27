@@ -1,7 +1,23 @@
 --Instalação
-helm install argo-cd argo/argo-cd --create-namespace --namespace producao-argo-cd --version 5.29.1 --values resources/argocd-values.yaml
+helm install argo-cd argo/argo-cd --create-namespace --namespace producao-argo-cd-new --version 5.29.1 --values resources/argocd-values.yaml
 
 --Pegar a senha
 kubectl -n producao get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
-kubectl -n producao-argo-cd apply -f resources/argocd-app-of-apps.yaml
+kubectl -n producao-argo-cd-new apply -f resources/argocd-app-of-apps.yaml
+
+
+
+delete
+
+kubectl delete ClusterRole argo-cd-argocd-application-controller -n producao-argocd
+
+kubectl delete ClusterRole argo-cd-argocd-repo-server -n producao-argocd
+
+kubectl delete ClusterRole argo-cd-argocd-server -n producao-argocd
+
+kubectl delete ClusterRoleBinding argo-cd-argocd-application-controller -n producao-argocd
+
+kubectl delete ClusterRoleBinding argo-cd-argocd-repo-server -n producao-argocd
+
+kubectl delete ClusterRoleBinding argo-cd-argocd-server -n producao-argocd

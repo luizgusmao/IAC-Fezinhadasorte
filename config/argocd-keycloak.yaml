@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: keycloak
-  namespace: producao-argo-cd
+  namespace: producao-argo-cd-new
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

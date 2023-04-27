@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: setup
-  namespace: producao-argo-cd
+  namespace: producao-argo-cd-new
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: apps/setup
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao-argo-cd
+    namespace: producao-argo-cd-new
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

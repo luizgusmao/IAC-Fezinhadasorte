@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-argocd
-  namespace: producao-argo-cd
+  namespace: producao-argo-cd-new
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
 spec:
