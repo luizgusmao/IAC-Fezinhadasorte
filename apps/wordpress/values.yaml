@@ -1105,7 +1105,7 @@ mariadb:
   ##      https://github.com/bitnami/containers/blob/main/bitnami/mariadb/README.md#creating-a-database-user-on-first-run
   ##
   auth:
-    rootPassword: Fezinha2023!
+    rootPassword: 
     database: bitnami_wordpress
     username: bn_wordpress
     password: ""
@@ -1140,7 +1140,7 @@ externalDatabase:
   user: bn_wordpress
   ## @param externalDatabase.password External Database user password
   ##
-  password: Fezinha2023!
+  password: 
   ## @param externalDatabase.database External Database database name
   ##
   database: bitnami_wordpress
