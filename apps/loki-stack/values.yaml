@@ -20,9 +20,6 @@ loki:
   datasource:
     jsonData: "{}"
     uid: ""
-  config: |
-    limits_config: 
-      split_queries_by_interval: 0
 
 
 promtail:
