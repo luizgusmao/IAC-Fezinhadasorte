@@ -6,7 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+    repoURL: https://github.com/bitnami/charts.git
+    path: bitnami/wordpress
     targetRevision: HEAD
     chart: wordpress
   destination:
