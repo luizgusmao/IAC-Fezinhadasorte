@@ -49,6 +49,11 @@ spec:
           server:
             root_url: https://fezinhadasorte.com:443/grafana/
             serve_from_sub_path: true
+        config: |
+          query_range: 
+            parallelise_shardable_queries: false
+          limits_config: 
+            split_queries_by_interval: 0
   destination:
     server: https://kubernetes.default.svc
     namespace: producao-grafana
