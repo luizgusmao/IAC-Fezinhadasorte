@@ -1,0 +1,2 @@
+Ver valor de secret
+kubectl get secret wordpress-mariadb -n producao-wordpress -o jsonpath='{.data.mariadb-password}' | base64 --decode
