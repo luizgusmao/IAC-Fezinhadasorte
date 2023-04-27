@@ -1,28 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wordpress
+  name: wordpress-fezinhadasorte
   namespace: producao-argo-cd-new
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: producao-wordpress
-  project: default  
+  project: default
   source:
-    repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'
-    path: apps/wordpress
+    repoURL: https://github.com/bitnami/charts/tree/main/bitnami/wordpress
     targetRevision: HEAD
-    helm:
-      valueFiles:
-        - values.yaml
+    chart: wordpress
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: producao-wordpress
   syncPolicy:
-    automated: 
-      prune: true
-      selfHeal: true
-      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
-      - PruneLast=true
-      # - Replace=true 
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
