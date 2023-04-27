@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-wordpress
-  namespace: producao-wordpress
+  namespace: default
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
 spec:
