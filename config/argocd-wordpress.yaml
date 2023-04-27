@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: producao-wordpress
   project: default  
   source:
     repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'

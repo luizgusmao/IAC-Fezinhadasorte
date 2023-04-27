@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-wordpress
-  namespace: producao-wordpress
+  namespace: default
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
 spec:
@@ -11,10 +11,10 @@ spec:
   - host: www.fezinhadasorte.com
     http:
       paths:
-      - path: /
+      - path: /demo
         pathType: Prefix
         backend:
           service:
-            name: wordpress
+            name: wordpress-demo
             port:
               number: 80
