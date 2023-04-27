@@ -131,7 +131,7 @@ extraEnv: |
   - name: DB_PORT
     value: "5432"
   - name: DB_DATABASE
-    value: keycloak
+    value: producao-keycloak
   - name: DB_USER
     value: keycloak
   - name: DB_PASSWORD
