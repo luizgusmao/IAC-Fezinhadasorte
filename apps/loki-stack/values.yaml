@@ -21,8 +21,6 @@ loki:
     jsonData: "{}"
     uid: ""
   config: |
-    query_range: 
-      parallelise_shardable_queries: false
     limits_config: 
       split_queries_by_interval: 0
 
