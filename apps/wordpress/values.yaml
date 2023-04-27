@@ -99,25 +99,25 @@ image:
 
 ## @param wordpressUsername WordPress username
 ##
-wordpressUsername: admin
+wordpressUsername: user
 ## @param wordpressPassword WordPress user password
 ## Defaults to a random 10-character alphanumeric string if not set
 ##
-wordpressPassword: Fezinha2023!
+wordpressPassword: "Fezinha2023!"
 ## @param existingSecret Name of existing secret containing WordPress credentials
 ## NOTE: Must contain key `wordpress-password`
 ## NOTE: When it's set, the `wordpressPassword` parameter is ignored
 ##
-existingSecret: 
+existingSecret: ""
 ## @param wordpressEmail WordPress user email
 ##
-wordpressEmail: luiz.gusmao@fezinhadasorte.com
+wordpressEmail: lhbg18@gmail.com
 ## @param wordpressFirstName WordPress user first name
 ##
-wordpressFirstName: Luiz
+wordpressFirstName: FirstName
 ## @param wordpressLastName WordPress user last name
 ##
-wordpressLastName: Gusmao
+wordpressLastName: LastName
 ## @param wordpressBlogName Blog name
 ##
 wordpressBlogName: User's Blog!
