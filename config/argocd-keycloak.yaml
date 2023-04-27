@@ -12,7 +12,7 @@ spec:
   project: default  
   source:
     repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'
-    path: apps/keycloakx
+    path: apps/keycloak
     targetRevision: HEAD
     helm:
       valueFiles:
