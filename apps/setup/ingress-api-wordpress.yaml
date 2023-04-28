@@ -5,7 +5,7 @@ metadata:
   namespace: producao-wordpress
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.org/client-max-body-size: "50m"
 spec:
   ingressClassName: nginx
   rules:
