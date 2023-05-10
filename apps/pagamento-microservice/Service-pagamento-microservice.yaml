@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pagamento-microservice-clusterip-service
-  namespace: producao-api-campanha
+  namespace: producao-api-pagamento
 spec:
   selector:
     app: pagamento-microservice

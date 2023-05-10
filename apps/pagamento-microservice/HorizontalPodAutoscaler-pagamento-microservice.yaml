@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: pagamento-microservice-hpa
-  namespace: producao-api-campanha
+  namespace: producao-api-pagamento
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
