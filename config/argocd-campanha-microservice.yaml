@@ -11,7 +11,7 @@ spec:
     path: apps/campanha-microservice
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao-microservices
+    namespace: producao-api-campanha
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

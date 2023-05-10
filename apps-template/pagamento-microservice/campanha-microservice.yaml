@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: campanha-microservice-deployment
+  name: pagamento-microservice-deployment
   namespace: producao-api-campanha
   labels:
-    app: campanha-microservice
+    app: pagamento-microservice
 spec:
   selector:
     matchLabels:
-      app: campanha-microservice
+      app: pagamento-microservice
       tier: web
   replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: campanha-microservice
+        app: pagamento-microservice
         tier: web
     spec:
       containers:
-      - name: campanha-microservice-container
+      - name: pagamento-microservice-container
         env:
         - name: DB_USER
           valueFrom:

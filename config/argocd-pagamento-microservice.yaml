@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: setup
+  name: pagamento-microservice
   namespace: producao-argo-cd-new
 spec:
   project: default
   source:
     repoURL: https://github.com/luizgusmao/IAC-fezinhadasorte.git
     targetRevision: HEAD
-    path: apps/setup
+    path: apps/pagamento-microservice
   destination:
     server: https://kubernetes.default.svc
-    namespace: producao-setup
+    namespace: producao-api-pagamento
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

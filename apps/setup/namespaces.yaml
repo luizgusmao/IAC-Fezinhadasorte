@@ -11,6 +11,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: producao-api-pagamento
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: producao-api-cliente
 ---
 apiVersion: v1
