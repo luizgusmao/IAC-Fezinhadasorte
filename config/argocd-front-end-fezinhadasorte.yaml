@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/luizgusmao/IAC-fezinhadasorte.git
     targetRevision: HEAD
-    path: apps/frontEndFezinhadasorte
+    path: apps/fezinha-frontend
   destination:
     server: https://kubernetes.default.svc
     namespace: producao-front-end
