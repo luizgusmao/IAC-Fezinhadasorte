@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-fezinha-frontend
-  namespace: producao-fezinha-frontend
+  namespace: producao-front-end
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
     nginx.org/client-max-body-size: "50m"
