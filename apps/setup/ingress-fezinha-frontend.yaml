@@ -1,20 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-wordpress-demo
-  namespace: default
+  name: ingress-fezinha-frontend
+  namespace: producao-front-end
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
+    nginx.org/client-max-body-size: "50m"
 spec:
   ingressClassName: nginx
   rules:
   - host: www.fezinhadasorte.com
     http:
       paths:
-      - path: /demo
+      - path: /
         pathType: Prefix
         backend:
           service:
-            name: wordpress-demo
+            name: front-end-fezinhadasorte-clusterip-service
             port:
               number: 80
