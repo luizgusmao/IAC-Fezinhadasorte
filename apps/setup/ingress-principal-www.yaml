@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-principal
+  name: ingress-principal-www
   namespace: producao-nginx-ingress
   annotations:
     kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
@@ -10,8 +10,8 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "fezinhadasorte.com"
+        - "www.fezinhadasorte.com"
       secretName: letsencrypt-fezinhadasorte
   ingressClassName: nginx
   rules:
-    - host: fezinhadasorte.com
+    - host: www.fezinhadasorte.com
