@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-fezinha-frontend
+  name: ingress-fezinha-frontend-www
   namespace: producao-front-end
   annotations:
     nginx.org/mergeable-ingress-type: "minion"
@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: fezinhadasorte.com
+    - host: www.fezinhadasorte.com
       http:
         paths:
           - path: /
