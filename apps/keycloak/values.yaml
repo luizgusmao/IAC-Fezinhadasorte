@@ -76,13 +76,15 @@ extraInitContainers: |
   - name: theme-provider
     image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.2
     imagePullPolicy: IfNotPresent
-    command:
-      - sh
+    command: ["cp"]
     args:
-      - -c
+      - /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar
       - |
-        echo "Copying theme... /opt/jboss/keycloak/providers/"
-        cp -R /opt/jboss/keycloak/providers/* /opt/jboss/keycloak/providers
+        echo "Copying theme... /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar"
+        /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
+    volumeMounts:
+      - name: theme
+        mountPath: /theme
 
 # When using service meshes which rely on a sidecar, it may be necessary to skip init containers altogether,
 # since the sidecar doesn't start until the init containers are done, and the sidecar may be required
@@ -244,7 +246,9 @@ startupScripts:
 extraVolumes: ""
 
 # Add additional volumes mounts, e. g. for custom themes
-extraVolumeMounts: ""
+extraVolumeMounts: |
+  - name: theme
+    mountPath: /opt/jboss/keycloak/providers/
 
 # Add additional ports, e. g. for admin console or exposing JGroups ports
 extraPorts: []
