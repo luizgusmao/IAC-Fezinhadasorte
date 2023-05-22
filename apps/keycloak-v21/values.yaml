@@ -459,7 +459,7 @@ extraVolumes: |
 ##
 extraVolumeMounts: |
   - name: theme
-    mountPath: /opt/jboss/keycloak/providers/
+    mountPath: /opt/keycloak/providers/
 ## @param initContainers Add additional init containers to the Keycloak pods
 ## Example:
 ## initContainers:
@@ -476,7 +476,7 @@ initContainers: |
     imagePullPolicy: IfNotPresent
     command: ["cp"]
     args:
-      - /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar
+      - /opt/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar
       - /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
     volumeMounts:
       - name: theme
@@ -492,14 +492,15 @@ initContainers: |
 ##         containerPort: 1234
 ##
 sidecars: |
-  - name: keycloak-command
+  - name: keycloak
+    image: jboss/keycloak:14.0.0
     command: ["/bin/sh", "-c"]
     args:
       - |
-        /opt/jboss/keycloak/bin/kc.sh build
+        /opt/keycloak/bin/kc.sh build
     volumeMounts:
       - name: theme
-        mountPath: /opt/jboss/keycloak/providers/
+        mountPath: /opt/keycloak/providers/
 
 ## @section Exposure parameters
 ##
