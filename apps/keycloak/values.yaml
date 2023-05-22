@@ -82,7 +82,7 @@ extraInitContainers: |
       - -c
       - |
         echo "Copying theme..."
-        cp -R /mytheme/* /theme
+        cp -R /opt/jboss/keycloak/providers/ /theme
 
 # When using service meshes which rely on a sidecar, it may be necessary to skip init containers altogether,
 # since the sidecar doesn't start until the init containers are done, and the sidecar may be required
