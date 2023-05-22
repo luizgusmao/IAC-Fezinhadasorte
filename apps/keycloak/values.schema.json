@@ -20,7 +20,10 @@
           "type": "string"
         },
         "tag": {
-          "type": ["string", "integer"]
+          "type": [
+            "string",
+            "integer"
+          ]
         }
       }
     },

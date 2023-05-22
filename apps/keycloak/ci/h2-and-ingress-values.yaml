@@ -34,7 +34,6 @@ extraVolumes: |
 postgresql:
   enabled: false
 
-
 ingress:
   enabled: true
   annotations:
@@ -45,9 +44,8 @@ ingress:
     test-label2: labelValue2
   # List of rules for the Ingress
   rules:
-    -
-      # Ingress host
-      host: '{{ .Release.Name }}.keycloak.example.com'
+    - # Ingress host
+      host: "{{ .Release.Name }}.keycloak.example.com"
       # Paths for the host
       paths:
         - path: /
@@ -64,8 +62,7 @@ ingress:
       test-label2: labelValue2
     ingressClassName: ""
     rules:
-      -
-        host: '{{ .Release.Name }}.keycloak.example.com'
+      - host: "{{ .Release.Name }}.keycloak.example.com"
         # Paths for the host
         paths:
           - path: /auth/admin/
