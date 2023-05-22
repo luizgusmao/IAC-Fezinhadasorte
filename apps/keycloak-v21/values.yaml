@@ -459,7 +459,7 @@ extraVolumes: |
 ##
 extraVolumeMounts: |
   - name: theme
-    mountPath: /opt/keycloak/providers/
+    mountPath: /opt/bitnami/keycloak/providers/
 ## @param initContainers Add additional init containers to the Keycloak pods
 ## Example:
 ## initContainers:
@@ -491,7 +491,16 @@ initContainers: |
 ##       - name: portname
 ##         containerPort: 1234
 ##
-sidecars: []
+sidecars: |
+  - name: keycloak
+    image: jboss/keycloak:14.0.0
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        /opt/bitnami/keycloak/bin/kc.sh build
+    volumeMounts:
+      - name: theme
+        mountPath: /opt/bitnami/keycloak/providers/
 
 ## @section Exposure parameters
 ##
