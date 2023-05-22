@@ -72,7 +72,17 @@ securityContext:
   runAsNonRoot: true
 
 # Additional init containers, e. g. for providing custom themes
-extraInitContainers: ""
+extraInitContainers: |
+  - name: theme-provider
+      image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.2
+      imagePullPolicy: IfNotPresent
+      command:
+        - sh
+      args:
+        - -c
+        - |
+          echo "Copying theme..."
+          cp -R /opt/jboss/keycloak/providers/* /opt/jboss/keycloak/providers
 
 # When using service meshes which rely on a sidecar, it may be necessary to skip init containers altogether,
 # since the sidecar doesn't start until the init containers are done, and the sidecar may be required
@@ -211,7 +221,8 @@ startupProbe: |
   periodSeconds: 5
 
 # Pod resource requests and limits
-resources: {}
+resources:
+  {}
   # requests:
   #   cpu: "500m"
   #   memory: "1024Mi"
@@ -250,7 +261,8 @@ statefulsetAnnotations: {}
 statefulsetLabels: {}
 
 # Configuration for secrets that should be created
-secrets: {}
+secrets:
+  {}
   # mysecret:
   #   type: {}
   #   annotations: {}
@@ -304,27 +316,28 @@ ingress:
   # The Service port targeted by the Ingress
   servicePort: http
   # Ingress annotations
-  annotations: {}
+  annotations:
+    {}
     ## Resolve HTTP 502 error using ingress-nginx:
     ## See https://www.ibm.com/support/pages/502-error-ingress-keycloak-response
     # nginx.ingress.kubernetes.io/proxy-buffer-size: 128k
 
   # Additional Ingress labels
-  labels: {}
-   # List of rules for the Ingress
+  labels:
+    {}
+    # List of rules for the Ingress
   rules:
-    -
-      # Ingress host
-      host: '{{ .Release.Name }}.keycloak.example.com'
+    - # Ingress host
+      host: "{{ .Release.Name }}.keycloak.example.com"
       # Paths for the host
       paths:
         - path: /
           pathType: Prefix
-# Example TLS configuration
-#   tls:
-#     - hosts:
-#         - keycloak.example.com
-#       secretName: ""
+  # Example TLS configuration
+  #   tls:
+  #     - hosts:
+  #         - keycloak.example.com
+  #       secretName: ""
 
   # ingress for console only (/auth/admin)
   console:
@@ -336,9 +349,8 @@ ingress:
     # Useful to set nginx.ingress.kubernetes.io/whitelist-source-range particularly
     annotations: {}
     rules:
-      -
-        # Ingress host
-        host: '{{ .Release.Name }}.keycloak.example.com'
+      - # Ingress host
+        host: "{{ .Release.Name }}.keycloak.example.com"
         # Paths for the host
         paths:
           - path: /auth/admin/
