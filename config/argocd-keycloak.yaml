@@ -7,22 +7,22 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: producao-keycloak
-  project: default  
+  project: default
   source:
-    repoURL: 'https://github.com/luizgusmao/IAC-Fezinhadasorte.git'
-    path: apps/keycloak
+    repoURL: "https://github.com/luizgusmao/IAC-Fezinhadasorte.git"
+    path: apps/keycloak-v21
     targetRevision: HEAD
     helm:
       valueFiles:
         - values.yaml
   syncPolicy:
-    automated: 
+    automated:
       prune: true
       selfHeal: true
       allowEmpty: true
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
-      # - Replace=true 
+      # - Replace=true
