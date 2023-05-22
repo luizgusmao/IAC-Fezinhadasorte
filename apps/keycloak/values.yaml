@@ -96,7 +96,7 @@ extraContainers: |
     command: ["/bin/sh", "-c"]
     args:
       - |
-        /opt/keycloak/bin/kc.sh build
+        /opt/jboss/keycloak/bin/kc.sh build
     volumeMounts:
       - name: theme
         mountPath: /opt/jboss/keycloak/providers/
