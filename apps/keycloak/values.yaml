@@ -76,10 +76,11 @@ extraInitContainers: |
   - name: theme-provider
     image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.2
     imagePullPolicy: IfNotPresent
-    command: ["cp"]
+    command: ["sh", "-c"]
     args:
-      - /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar
-      - /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
+      - |
+        cp /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
+        /opt/keycloak/bin/kc.sh build
     volumeMounts:
       - name: theme
         mountPath: /theme
