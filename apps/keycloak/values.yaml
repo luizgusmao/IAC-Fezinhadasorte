@@ -251,7 +251,6 @@ extraVolumes: |
 # Add additional volumes mounts, e. g. for custom themes
 extraVolumeMounts: |
   - name: theme
-    emptyDir: {}
 
 # Add additional ports, e. g. for admin console or exposing JGroups ports
 extraPorts: []
