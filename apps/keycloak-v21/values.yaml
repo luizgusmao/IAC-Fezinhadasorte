@@ -491,16 +491,7 @@ initContainers: |
 ##       - name: portname
 ##         containerPort: 1234
 ##
-sidecars: |
-  - name: keycloak
-    image: jboss/keycloak:14.0.0
-    command: ["/bin/sh", "-c"]
-    args:
-      - |
-        /opt/keycloak/bin/kc.sh build
-    volumeMounts:
-      - name: theme
-        mountPath: /opt/keycloak/providers/
+sidecars: []
 
 ## @section Exposure parameters
 ##
