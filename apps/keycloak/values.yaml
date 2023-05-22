@@ -72,7 +72,20 @@ securityContext:
   runAsNonRoot: true
 
 # Additional init containers, e. g. for providing custom themes
-extraInitContainers: ""
+extraInitContainers: |
+  - name: theme-provider
+    image: myuser/mytheme:1
+    imagePullPolicy: IfNotPresent
+    command:
+      - sh
+    args:
+      - -c
+      - |
+        echo "Copying theme..."
+        cp -R /mytheme/* /theme
+    volumeMounts:
+      - name: theme
+        mountPath: /theme
 
 # When using service meshes which rely on a sidecar, it may be necessary to skip init containers altogether,
 # since the sidecar doesn't start until the init containers are done, and the sidecar may be required
@@ -231,10 +244,14 @@ startupScripts:
   # echo 'Hello from my custom startup script!'
 
 # Add additional volumes, e. g. for custom themes
-extraVolumes: ""
+extraVolumes: |
+  - name: theme
+    mountPath: /opt/jboss/keycloak/themes/mytheme
 
 # Add additional volumes mounts, e. g. for custom themes
-extraVolumeMounts: ""
+extraVolumeMounts: |
+  - name: theme
+    emptyDir: {}
 
 # Add additional ports, e. g. for admin console or exposing JGroups ports
 extraPorts: []
