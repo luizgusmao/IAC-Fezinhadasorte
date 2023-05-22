@@ -247,25 +247,7 @@ args: []
 ##   - name: FOO
 ##     value: "bar"
 ##
-extraEnvVars: |
-  - name: KC_HOSTNAME
-    value: fezinhadasorte.com
-  - name: KC_HOSTNAME_STRICT_HTTPS
-    value: 'true'
-  - name: KC_LOG_LEVEL
-    value: 'DEBUG'
-  - name: DB_VENDOR
-    value: postgres
-  - name: DB_ADDR
-    value: 10.15.112.3
-  - name: DB_PORT
-    value: "5432"
-  - name: DB_DATABASE
-    value: producao-keycloak
-  - name: DB_USER
-    value: keycloak
-  - name: DB_PASSWORD
-    value: test123
+extraEnvVars:
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
 ##
 extraEnvVarsCM: ""
@@ -588,7 +570,7 @@ ingress:
   apiVersion: ""
   ## @param ingress.hostname Default host for the ingress record (evaluated as template)
   ##
-  hostname: fezinhadasorte.com
+  hostname: www.fezinhadasorte.com
   ## @param ingress.path [string] Default path for the ingress record (evaluated as template)
   ##
   path: "{{ .Values.httpRelativePath }}"
