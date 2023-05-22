@@ -472,7 +472,7 @@ extraVolumeMounts: |
 ##
 initContainers: |
   - name: theme-provider
-    image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.2
+    image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.3
     imagePullPolicy: IfNotPresent
     command: ["cp"]
     args:
