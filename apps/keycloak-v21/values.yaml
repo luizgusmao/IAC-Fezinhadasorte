@@ -118,7 +118,7 @@ auth:
   adminUser: user
   ## @param auth.adminPassword Keycloak administrator password for the new user
   ##
-  adminPassword: "Fezinha!"
+  adminPassword: "as897gsdfs766dfsgjhsdf"
   ## @param auth.existingSecret Existing secret containing Keycloak admin password
   ##
   existingSecret: ""
@@ -248,18 +248,6 @@ args: []
 ##     value: "bar"
 ##
 extraEnvVars: |
-  - name: KEYCLOAK_USER
-    value: 'admin'
-  - name: KEYCLOAK_PASSWORD
-    value: 'as897gsdfs766dfsgjhsdf'
-  - name: PROXY_ADDRESS_FORWARDING
-    value: 'true'
-  - name: KEYCLOAK_ADMIN
-    value: 'admin'
-  - name: KEYCLOAK_ADMIN_PASSWORD
-    value: 'as897gsdfs766dfsgjhsdf'
-  - name: KC_PROXY
-    value: 'edge'
   - name: KC_HOSTNAME
     value: fezinhadasorte.com
   - name: KC_HOSTNAME_STRICT_HTTPS
@@ -1087,11 +1075,11 @@ postgresql:
 ## @param externalDatabase.existingSecretPasswordKey Name of an existing secret key containing the database credentials
 ##
 externalDatabase:
-  host: ""
+  host: "10.15.112.3"
   port: 5432
-  user: bn_keycloak
-  database: bitnami_keycloak
-  password: ""
+  user: keycloak
+  database: producao-keycloak
+  password: "test123"
   existingSecret: ""
   existingSecretHostKey: ""
   existingSecretPortKey: ""
@@ -1122,4 +1110,4 @@ cache:
 ##
 logging:
   output: default
-  level: INFO
+  level: DEBUG
