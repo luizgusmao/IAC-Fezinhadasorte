@@ -492,7 +492,7 @@ initContainers: |
 ##         containerPort: 1234
 ##
 sidecars: |
-  - name: keycloak
+  - name: keycloak-command
     command: ["/bin/sh", "-c"]
     args:
       - |
