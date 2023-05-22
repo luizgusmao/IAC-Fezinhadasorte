@@ -76,11 +76,10 @@ extraInitContainers: |
   - name: theme-provider
     image: luizgusmao/fezinhadasorte-keycloak-theme:0.0.2
     imagePullPolicy: IfNotPresent
-    command: ["sh", "-c"]
+    command: ["cp"]
     args:
-      - |
-        cp /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
-        /opt/keycloak/bin/kc.sh build
+      - /opt/jboss/keycloak/providers/keycloakify-starter-keycloak-theme-4.4.14.jar
+      - /theme/keycloakify-starter-keycloak-theme-4.4.14.jar
     volumeMounts:
       - name: theme
         mountPath: /theme
@@ -92,7 +91,15 @@ extraInitContainers: |
 skipInitContainers: false
 
 # Additional sidecar containers, e. g. for a database proxy, such as Google's cloudsql-proxy
-extraContainers: ""
+extraContainers: |
+  - name: keycloak
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        /opt/keycloak/bin/kc.sh build
+    volumeMounts:
+      - name: theme
+        mountPath: /opt/jboss/keycloak/providers/
 
 # Lifecycle hooks for the Keycloak container
 lifecycleHooks: |
