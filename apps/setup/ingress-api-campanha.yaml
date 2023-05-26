@@ -18,3 +18,10 @@ spec:
             name: campanha-microservice-clusterip-service
             port:
               number: 80
+      - path: /api/novidades
+        pathType: Prefix
+        backend:
+          service:
+            name: campanha-microservice-clusterip-service
+            port:
+              number: 80
