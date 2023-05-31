@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: pagamento-microservice-deployment
-  namespace: producao-api-campanha
+  namespace: producao-api-pagamento
   labels:
     app: pagamento-microservice
 spec:
