@@ -247,7 +247,9 @@ args: []
 ##   - name: FOO
 ##     value: "bar"
 ##
-extraEnvVars:
+extraEnvVars: |
+  - name: JAVA_OPTS
+    value: -Dkeycloak.profile=preview
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
 ##
 extraEnvVarsCM: ""
