@@ -50,7 +50,17 @@ spec:
             secretKeyRef:
               name: fezinhadasorte-secret-key
               key: secret_key_password
-        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/pagamento-microservice:1647580 # Image that will be used to containers in the cluster
+        - name: SECRET_KEYCLOAK_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-keycloak
+              key: secret-keycloak-client-id
+        - name: SECRET_KEYCLOAK_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: fezinhadasorte-secret-keycloak
+              key: secret-keycloak-client-secret
+        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/pagamento-microservice:3ce5c7b # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080 # The port that the container is running on in the cluster
