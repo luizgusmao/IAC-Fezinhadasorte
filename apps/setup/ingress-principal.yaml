@@ -7,7 +7,6 @@ metadata:
     kubernetes.io/ingress.static-ip-name: fezinhadasorte-ip-external
     cert-manager.io/cluster-issuer: "letsencrypt-fezinhadasorte-cluster-issuer"
     nginx.org/mergeable-ingress-type: "master"
-    nginx.ingress.kubernetes.io/proxy-buffer-size: "8m"
 spec:
   tls:
     - hosts:
