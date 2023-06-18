@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: front-end-fezinhadasorte
-  replicas: 1 # Number of replicas that will be created for this deployment
+  replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
@@ -24,7 +24,7 @@ spec:
             protocol: TCP
         env:
           - name: TZ
-              value: America/Sao_Paulo
+            value: America/Sao_Paulo
           - name: PORT
             value: "8080"
       dnsPolicy: ClusterFirst

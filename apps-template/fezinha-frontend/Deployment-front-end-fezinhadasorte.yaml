@@ -20,13 +20,13 @@ spec:
         image: INIT_IMAGE_NAME # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8080 # The port that the container is running on in the cluster
-          protocol: TCP
+          - containerPort: 8080 # The port that the container is running on in the cluster
+            protocol: TCP
         env:
-        - name: TZ
-          value: America/Sao_Paulo
-        - name: PORT
-          value: "8080"
+          - name: TZ
+            value: America/Sao_Paulo
+          - name: PORT
+            value: "8080"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
