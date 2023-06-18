@@ -18,3 +18,10 @@ spec:
             name: pagamento-microservice-clusterip-service
             port:
               number: 80
+      - path: /api/csrf
+        pathType: Prefix
+        backend:
+          service:
+            name: pagamento-microservice-clusterip-service
+            port:
+              number: 80
