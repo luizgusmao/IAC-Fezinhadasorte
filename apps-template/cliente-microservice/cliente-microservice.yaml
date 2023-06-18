@@ -20,8 +20,6 @@ spec:
       containers:
       - name: cliente-microservice-container
         env:
-        - name: TZ
-          value: "America/Sao_Paulo"
         - name: DB_USER
           valueFrom:
             secretKeyRef:
