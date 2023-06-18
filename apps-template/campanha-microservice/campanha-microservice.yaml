@@ -20,6 +20,8 @@ spec:
       containers:
       - name: campanha-microservice-container
         env:
+        - name: TZ
+              value: "America/Sao_Paulo"
         - name: DB_USER
           valueFrom:
             secretKeyRef:

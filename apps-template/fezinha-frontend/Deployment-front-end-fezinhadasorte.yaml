@@ -16,6 +16,8 @@ spec:
         app: front-end-fezinhadasorte
     spec:
       containers:
+      - name: TZ
+              value: "America/Sao_Paulo"
       - name: front-end-fezinhadasorte-container
         image: INIT_IMAGE_NAME # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent

@@ -147,7 +147,9 @@ server:
   ##     secretKeyRef:
   ##       name: mysecret
   ##       key: username
-  env: []
+  env: 
+    - name: TZ
+      value: "America/Sao_Paulo"
 
   # List of flags to override default parameters, e.g:
   # - --enable-feature=agent

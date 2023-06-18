@@ -23,6 +23,8 @@ spec:
           - containerPort: 8080 # The port that the container is running on in the cluster
             protocol: TCP
         env:
+          - name: TZ
+            value: "America/Sao_Paulo"
           - name: PORT
             value: "8080"
       dnsPolicy: ClusterFirst
