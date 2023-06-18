@@ -11,7 +11,7 @@ spec:
   - host: www.fezinhadasorte.com
     http:
       paths:
-      - path: /api/cliente
+      - path: /api/usuario/cliente
         pathType: Prefix
         backend:
           service:
