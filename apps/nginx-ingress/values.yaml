@@ -157,7 +157,7 @@ controller:
   ## The additional environment variables to be set on the Ingress Controller pods.
   env: 
     - name: TZ
-      value: "America/Sao_Paulo"
+      value: America/Sao_Paulo
   # - name: MY_VAR
   #   value: myvalue
 
