@@ -155,9 +155,7 @@ controller:
   # topologySpreadConstraints: {}
 
   ## The additional environment variables to be set on the Ingress Controller pods.
-  env: 
-    - name: TZ
-      value: America/Sao_Paulo
+  env: []
   # - name: MY_VAR
   #   value: myvalue
 
