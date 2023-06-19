@@ -251,7 +251,7 @@ extraEnvVars: |
   - name: JAVA_OPTS
     value: -Dkeycloak.profile=preview
   - name: TZ
-    value: "America/Sao_Paulo"
+    value: America/Sao_Paulo
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
 ##
 extraEnvVarsCM: ""
