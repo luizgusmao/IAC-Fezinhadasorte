@@ -149,7 +149,7 @@ server:
   ##       key: username
   env: 
     - name: TZ
-      value: "America/Sao_Paulo"
+      value: America/Sao_Paulo
 
   # List of flags to override default parameters, e.g:
   # - --enable-feature=agent
