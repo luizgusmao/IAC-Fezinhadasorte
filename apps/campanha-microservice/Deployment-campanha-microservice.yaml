@@ -62,7 +62,7 @@ spec:
             secretKeyRef:
               name: fezinhadasorte-secret-keycloak
               key: secret-keycloak-client-secret
-        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/campanha-microservice:7a9a18b # Image that will be used to containers in the cluster
+        image: us-east1-docker.pkg.dev/beta-382200/fezinhadasorte-repo/campanha-microservice:7196dde # Image that will be used to containers in the cluster
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080 # The port that the container is running on in the cluster
