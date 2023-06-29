@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: processamento-resultado-concurso-microservice
-  replicas: 3 # Number of replicas that will be created for this deployment
+  replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
