@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: campanha-microservice-clusterip-service
+  namespace: producao-api-campanha
+spec:
+  selector:
+    app: campanha-microservice
+  ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8080
+    - name: https-api
+      port: 8443
+      protocol: TCP
+      targetPort: 8080
+    - name: http-api
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: ClusterIP

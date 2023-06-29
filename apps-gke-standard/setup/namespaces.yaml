@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-argo-cd-new
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-api-campanha
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-api-pagamento
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-api-cliente
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-grafana
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-keycloak
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-microservices
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-front-end
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-loki
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-nginx-ingress
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-api-proc-resultado-concurso
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-prometheus
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: producao-api-resultado-concurso
